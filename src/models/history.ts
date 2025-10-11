@@ -25,7 +25,9 @@ History.init(
     }
   },
   {
-    sequelize: database
+    sequelize: database,
+    tableName: "histories",
+    modelName: "History"
   }
 )
 

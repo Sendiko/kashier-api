@@ -22,7 +22,9 @@ Item.init({
     allowNull: false
   }
 }, {
-  sequelize: database
+  sequelize: database,
+  tableName: "items",
+  modelName: "Item"
 });
 
 export default Item;
