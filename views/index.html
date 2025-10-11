@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashier API Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple syntax highlighting for JSON */
+        .json-key { color: #9b59b6; }
+        .json-string { color: #2ecc71; }
+        .json-number { color: #3498db; }
+        .json-brace { color: #34495e; }
+        .json-boolean { color: #f39c12; }
+        .json-null { color: #c0392b; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-6 md:p-10">
+        <!-- Centered Title -->
+        <header class="text-center my-8 md:my-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight">Kashier API Documentation V1</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div id="api-content">
+                <!-- API documentation content will be dynamically generated here -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const postmanCollection = {
+        	"info": {
+        		"_postman_id": "74b02575-6aec-466e-9451-75121d9efb0f",
+        		"name": "Kashier API",
+        		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+        	},
+        	"item": [
+        		{
+        			"name": "User",
+        			"item": [
+        				{
+        					"name": "Get User All",
+        					"request": { "method": "GET", "header": [], "url": { "raw": "{{prod}}/api/v1/user" } }
+        				},
+        				{
+        					"name": "Create New User",
+        					"request": { "method": "POST", "header": [], "body": { "mode": "raw", "raw": "{\r\n    \"name\": \"IPHONE_15_69000\"\r\n}" }, "url": { "raw": "{{prod}}/api/v1/user" } }
+        				},
+        				{
+        					"name": "Delete User",
+        					"request": { "method": "DELETE", "header": [], "url": { "raw": "{{prod}}/api/v1/user/IPHONE_15_69000" } }
+        				}
+        			]
+        		},
+        		{
+        			"name": "Item",
+        			"item": [
+        				{
+        					"name": "Get Item All",
+        					"request": { "method": "GET", "header": [], "url": { "raw": "{{prod}}/api/v1/item" } }
+        				},
+        				{
+        					"name": "Get Item User",
+        					"request": { "method": "GET", "header": [], "url": { "raw": "{{prod}}/api/v1/item/IPHONE_15_69000" } }
+        				},
+        				{
+        					"name": "Create New Item",
+        					"request": { "method": "POST", "header": [], "body": { "mode": "raw", "raw": "{\r\n    \"name\": \"Dolor sit amet.\",\r\n    \"price\": 100000.0,\r\n    \"userId\": \"IPHONE_15_69000\"\r\n}" }, "url": { "raw": "{{prod}}/api/v1/item" } }
+        				},
+        				{
+        					"name": "Update item",
+        					"request": { "method": "PUT", "header": [], "body": { "mode": "raw", "raw": "{\r\n    \"price\": 50000,\r\n    \"name\": \"Dolor sit amet.\"\r\n}" }, "url": { "raw": "{{prod}}/api/v1/item/2" } }
+        				},
+        				{
+        					"name": "Delete Item",
+        					"request": { "method": "DELETE", "header": [], "url": { "raw": "{{prod}}/api/v1/item/2" } }
+        				}
+        			]
+        		},
+        		{
+        			"name": "History",
+        			"item": [
+        				{
+        					"name": "Get All History",
+        					"request": { "method": "GET", "header": [], "url": { "raw": "{{prod}}/api/v1/history" } }
+        				},
+        				{
+        					"name": "Get History User",
+        					"request": { "method": "GET", "header": [], "url": { "raw": "{{prod}}/api/v1/history/IPHONE_15_69000" } }
+        				},
+        				{
+        					"name": "Create History",
+        					"request": { "method": "POST", "header": [], "body": { "mode": "raw", "raw": "{\r\n    \"userId\": \"IPHONE_15_69000\",\r\n    \"total\": 300000.0,\r\n    \"items\": 3\r\n}" }, "url": { "raw": "{{prod}}/api/v1/history" } }
+        				}
+        			]
+        		}
+        	]
+        };
+
+        const responses = {
+            "Get User All": `{ "status": 200, "message": "Users retrieved successfully.", "users": [ { "id": "IPHONE_15_69000", "name": "IPHONE_15_69000", "createdAt": "2025-10-11T03:45:28.000Z", "updatedAt": "2025-10-11T03:45:28.000Z" } ] }`,
+            "Create New User": `{ "status": 201, "message": "User successfully created.", "user": { "id": "IPHONE_15_69000", "name": "IPHONE_15_69000", "updatedAt": "2025-10-11T04:53:15.513Z", "createdAt": "2025-10-11T04:53:15.513Z" } }`,
+            "Delete User": `{ "status": 200, "message": "User is successfully deleted." }`,
+            "Get Item All": `{ "status": 200, "message": "Items retrieved successfully.", "items": [ { "id": 1, "name": "Lorem ipsum", "price": 100000, "createdAt": "2025-10-11T04:55:31.000Z", "updatedAt": "2025-10-11T04:55:31.000Z", "userId": "IPHONE_15_69000" }, { "id": 2, "name": "Dolor sit amet.", "price": 100000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:55:37.000Z", "userId": "IPHONE_15_69000" } ] }`,
+            "Get Item User": `{ "status": 200, "message": "Items retrieved successfully.", "items": [ { "id": 1, "name": "Lorem ipsum", "price": 100000, "createdAt": "2025-10-11T04:55:31.000Z", "updatedAt": "2025-10-11T04:55:31.000Z", "userId": "IPHONE_15_69000" }, { "id": 2, "name": "Dolor sit amet.", "price": 100000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:55:37.000Z", "userId": "IPHONE_15_69000" } ] }`,
+            "Update item": `{ "status": 200, "message": "Item updated successfully.", "item": { "id": 2, "name": "Dolor sit amet 2.", "price": 50000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:56:57.059Z", "userId": "IPHONE_15_69000" } }`,
+            "Delete Item": `{ "status": 200, "message": "Item deleted successfully." }`,
+            "Get All History": `{ "status": 200, "message": "Histories retrieved successfully.", "histories": [ { "id": 3, "total": 300000, "items": 3, "createdAt": "2025-10-11T04:58:39.000Z", "updatedAt": "2025-10-11T04:58:39.000Z", "userId": "IPHONE_15_69000" } ] }`,
+            "Get History User": `{ "status": 200, "message": "History successfully retrieved.", "histories": [ { "id": 3, "total": 300000, "items": 3, "createdAt": "2025-10-11T04:58:39.000Z", "updatedAt": "2025-10-11T04:58:39.000Z", "userId": "IPHONE_15_69000" } ] }`,
+            "Create History": `{ "status": 201, "message": "History created successfully.", "history": { "id": null, "userId": "IPHONE_15_69000", "total": 300000, "items": 3, "updatedAt": "2025-10-11T04:58:39.978Z", "createdAt": "2025-10-11T04:58:39.978Z" } }`
+        };
+
+
+        const apiContent = document.getElementById('api-content');
+
+        const getMethodClass = (method) => {
+            switch (method.toUpperCase()) {
+                case 'GET': return 'bg-green-100 text-green-800';
+                case 'POST': return 'bg-blue-100 text-blue-800';
+                case 'PUT': return 'bg-yellow-100 text-yellow-800';
+                case 'DELETE': return 'bg-red-100 text-red-800';
+                default: return 'bg-gray-100 text-gray-800';
+            }
+        };
+
+        const formatJson = (jsonString) => {
+            if (!jsonString) return '';
+            try {
+                const jsonObj = JSON.parse(jsonString);
+                const prettyJson = JSON.stringify(jsonObj, null, 4);
+                return prettyJson.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
+                    let cls = 'json-number';
+                    if (/^"/.test(match)) {
+                        cls = /:$/.test(match) ? 'json-key' : 'json-string';
+                    } else if (/true|false/.test(match)) {
+                        cls = 'json-boolean';
+                    } else if (/null/.test(match)) {
+                        cls = 'json-null';
+                    }
+                    return `<span class="${cls}">${match}</span>`;
+                });
+            } catch (e) {
+                console.error("Error parsing JSON: ", jsonString, e);
+                return jsonString;
+            }
+        };
+
+        postmanCollection.item.forEach(folder => {
+            const section = document.createElement('section');
+            section.id = folder.name.toLowerCase().replace(/\s+/g, '-');
+            section.className = 'mb-16';
+
+            const sectionTitle = document.createElement('h2');
+            sectionTitle.textContent = folder.name;
+            sectionTitle.className = 'text-3xl font-bold text-gray-900 mb-6 pb-2 border-b border-gray-300';
+            section.appendChild(sectionTitle);
+
+            if (folder.item) {
+                folder.item.forEach(requestItem => {
+                    const endpointCard = document.createElement('div');
+                    endpointCard.className = 'bg-white rounded-lg border border-gray-200 shadow-sm mb-6 overflow-hidden';
+
+                    const cardHeader = document.createElement('div');
+                    cardHeader.className = 'p-4 border-b border-gray-200';
+                    const endpointTitle = document.createElement('h3');
+                    endpointTitle.textContent = requestItem.name;
+                    endpointTitle.className = 'text-xl font-semibold text-gray-800';
+                    cardHeader.appendChild(endpointTitle);
+                    
+                    const cardBody = document.createElement('div');
+                    cardBody.className = 'p-4';
+
+                    const requestInfo = document.createElement('div');
+                    requestInfo.className = 'flex items-center space-x-3 bg-gray-100 p-3 rounded-md mb-4';
+
+                    const methodSpan = document.createElement('span');
+                    methodSpan.textContent = requestItem.request.method;
+                    methodSpan.className = `px-3 py-1 text-sm font-bold rounded-md ${getMethodClass(requestItem.request.method)}`;
+                    
+                    const pathCode = document.createElement('code');
+                    pathCode.textContent = requestItem.request.url.raw.replace(/{{prod}}/, '');
+                    pathCode.className = 'text-base font-mono text-gray-700';
+
+                    requestInfo.appendChild(methodSpan);
+                    requestInfo.appendChild(pathCode);
+                    cardBody.appendChild(requestInfo);
+
+                    if (requestItem.request.body && requestItem.request.body.raw) {
+                        const bodyTitle = document.createElement('h4');
+                        bodyTitle.textContent = 'Request Body';
+                        bodyTitle.className = 'font-semibold text-gray-700 mb-2';
+                        cardBody.appendChild(bodyTitle);
+
+                        const pre = document.createElement('pre');
+                        pre.className = 'bg-gray-900 text-white p-4 rounded-md text-sm overflow-x-auto';
+                        const code = document.createElement('code');
+                        code.innerHTML = formatJson(requestItem.request.body.raw);
+                        pre.appendChild(code);
+                        cardBody.appendChild(pre);
+                    }
+
+                    const responseTitle = document.createElement('h4');
+                    responseTitle.textContent = 'Example Response';
+                    responseTitle.className = 'font-semibold text-gray-700 mt-4 mb-2';
+                    cardBody.appendChild(responseTitle);
+
+                    const responsePre = document.createElement('pre');
+                    const responseCode = document.createElement('code');
+                    
+                    const responseJson = responses[requestItem.name];
+                    if(responseJson) {
+                        responseCode.innerHTML = formatJson(responseJson);
+                        responsePre.className = 'bg-gray-900 text-white p-4 rounded-md text-sm overflow-x-auto';
+                    } else {
+                        responseCode.textContent = `{\n  "status": "...",\n  "message": "No example response provided."\n}`;
+                         responsePre.className = 'bg-gray-200 border border-gray-300 text-gray-600 p-4 rounded-md text-sm overflow-x-auto';
+                    }
+                    
+                    responsePre.appendChild(responseCode);
+                    cardBody.appendChild(responsePre);
+
+                    endpointCard.appendChild(cardHeader);
+                    endpointCard.appendChild(cardBody);
+                    section.appendChild(endpointCard);
+                });
+            }
+
+            apiContent.appendChild(section);
+        });
+
+    </script>
+
+</body>
+</html>
