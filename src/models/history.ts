@@ -15,14 +15,6 @@ History.init(
       primaryKey: true,
       autoIncrement: true
     },
-    userId: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      references: {
-        model: 'users',
-        key: 'id'
-      }
-    },
     total: {
       type: DataTypes.FLOAT,
       allowNull: false
