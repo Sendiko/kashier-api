@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import jwt, { JwtPayload } from 'jsonwebtoken';
+import config from '../config/config.js';
 import User from "../models/user.js";
 
 const UserController = {
@@ -35,11 +37,15 @@ const UserController = {
           message: "User not found."
         });
       }
+      if (user.token === null) {
+        const token = jwt.sign({ name: user.name }, `${config.JWTAUTHKEY}`, { expiresIn: '3h' });
+        await user.update({token: token});
+      }
 
       return res.status(200).json({
         status: 200,
         message: "User retrieved successfully.",
-        user: user
+        user: user 
       })
     } catch (error: any) {
       return res.status(500).json({
@@ -65,7 +71,8 @@ const UserController = {
         })
       }
 
-      const user = await User.create({ id: req.body.name, name: req.body.name })
+      const token = jwt.sign({ name: req.body.name }, `${config.JWTAUTHKEY}`, { expiresIn: '3h' });
+      const user = await User.create({ id: req.body.name, name: req.body.name, token: token })
       return res.status(201).json({
         status: 201,
         message: "User successfully created.",

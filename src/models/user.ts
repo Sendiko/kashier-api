@@ -4,6 +4,7 @@ import database from "../database/db.js"
 class User extends Model {
   public id!: string
   public name!: string
+  public token?: string | null
 }
 
 User.init({
@@ -14,6 +15,10 @@ User.init({
   name: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  token: {
+    type: DataTypes.STRING,
+    allowNull: true,
   }
 }, {
   sequelize: database,
