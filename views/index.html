@@ -87,7 +87,8 @@
         		} ]
         };
         const responsesV1 = {
-            "Get User All": `{ "status": 200, "message": "Users retrieved successfully.", "users": [ { "id": "IPHONE_15_69000", "name": "IPHONE_15_69000", "createdAt": "2025-10-11T03:45:28.000Z", "updatedAt": "2025-10-11T03:45:28.000Z" } ] }`, "Create New User": `{ "status": 201, "message": "User successfully created.", "user": { "id": "IPHONE_15_69000", "name": "IPHONE_15_69000", "updatedAt": "2025-10-11T04:53:15.513Z", "createdAt": "2025-10-11T04:53:15.513Z" } }`, "Delete User": `{ "status": 200, "message": "User is successfully deleted." }`, "Get Item All": `{ "status": 200, "message": "Items retrieved successfully.", "items": [ { "id": 1, "name": "Lorem ipsum", "price": 100000, "createdAt": "2025-10-11T04:55:31.000Z", "updatedAt": "2025-10-11T04:55:31.000Z", "userId": "IPHONE_15_69000" }, { "id": 2, "name": "Dolor sit amet.", "price": 100000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:55:37.000Z", "userId": "IPHONE_15_69000" } ] }`, "Get Item User": `{ "status": 200, "message": "Items retrieved successfully.", "items": [ { "id": 1, "name": "Lorem ipsum", "price": 100000, "createdAt": "2025-10-11T04:55:31.000Z", "updatedAt": "2025-10-11T04:55:31.000Z", "userId": "IPHONE_15_69000" }, { "id": 2, "name": "Dolor sit amet.", "price": 100000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:55:37.000Z", "userId": "IPHONE_15_69000" } ] }`, "Update item": `{ "status": 200, "message": "Item updated successfully.", "item": { "id": 2, "name": "Dolor sit amet 2.", "price": 50000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:56:57.059Z", "userId": "IPHONE_15_69000" } }`, "Delete Item": `{ "status": 200, "message": "Item deleted successfully." }`, "Get All History": `{ "status": 200, "message": "Histories retrieved successfully.", "histories": [ { "id": 3, "total": 300000, "items": 3, "createdAt": "2025-10-11T04:58:39.000Z", "updatedAt": "2025-10-11T04:58:39.000Z", "userId": "IPHONE_15_69000" } ] }`, "Get History User": `{ "status": 200, "message": "History successfully retrieved.", "histories": [ { "id": 3, "total": 300000, "items": 3, "createdAt": "2025-10-11T04:58:39.000Z", "updatedAt": "2025-10-11T04:58:39.000Z", "userId": "IPHONE_15_69000" } ] }`, "Create History": `{ "status": 201, "message": "History created successfully.", "history": { "id": null, "userId": "IPHONE_15_69000", "total": 300000, "items": 3, "updatedAt": "2025-10-11T04:58:39.978Z", "createdAt": "2025-10-11T04:58:39.978Z" } }`
+            "Get User All": `{ "status": 200, "message": "Users retrieved successfully.", "users": [ { "id": "IPHONE_15_69000", "name": "IPHONE_15_69000", "createdAt": "2025-10-11T03:45:28.000Z", "updatedAt": "2025-10-11T03:45:28.000Z" } ] }`, "Create New User": `{ "status": 201, "message": "User successfully created.", "user": { "id": "IPHONE_15_69000", "name": "IPHONE_15_69000", "updatedAt": "2025-10-11T04:53:15.513Z", "createdAt": "2025-10-11T04:53:15.513Z" } }`, "Delete User": `{ "status": 200, "message": "User is successfully deleted." }`, "Get Item All": `{ "status": 200, "message": "Items retrieved successfully.", "items": [ { "id": 1, "name": "Lorem ipsum", "price": 100000, "createdAt": "2025-10-11T04:55:31.000Z", "updatedAt": "2025-10-11T04:55:31.000Z", "userId": "IPHONE_15_69000" }, { "id": 2, "name": "Dolor sit amet.", "price": 100000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:55:37.000Z", "userId": "IPHONE_15_69000" } ] }`, "Get Item User": `{ "status": 200, "message": "Items retrieved successfully.", "items": [ { "id": 1, "name": "Lorem ipsum", "price": 100000, "createdAt": "2025-10-11T04:55:31.000Z", "updatedAt": "2025-10-11T04:55:31.000Z", "userId": "IPHONE_15_69000" }, { "id": 2, "name": "Dolor sit amet.", "price": 100000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:55:37.000Z", "userId": "IPHONE_15_69000" } ] }`, "Update item": `{ "status": 200, "message": "Item updated successfully.", "item": { "id": 2, "name": "Dolor sit amet 2.", "price": 50000, "createdAt": "2025-10-11T04:55:37.000Z", "updatedAt": "2025-10-11T04:56:57.059Z", "userId": "IPHONE_15_69000" } }`, "Delete Item": `{ "status": 200, "message": "Item deleted successfully." }`, "Get All History": `{ "status": 200, "message": "Histories retrieved successfully.", "histories": [ { "id": 3, "total": 300000, "items": 3, "createdAt": "2025-10-11T04:58:39.000Z", "updatedAt": "2025-10-11T04:58:39.000Z", "userId": "IPHONE_15_69000" } ] }`, "Get History User": `{ "status": 200, "message": "History successfully retrieved.", "histories": [ { "id": 3, "total": 300000, "items": 3, "createdAt": "2025-10-11T04:58:39.000Z", "updatedAt": "2025-10-11T04:58:39.000Z", "userId": "IPHONE_15_69000" } ] }`, "Create History": `{ "status": 201, "message": "History created successfully.", "history": { "id": null, "userId": "IPHONE_15_69000", "total": 300000, "items": 3, "updatedAt": "2025-10-11T04:58:39.978Z", "createdAt": "2025-10-11T04:58:39.978Z" } }`,
+            "Create New Item": `{ "status": 201, "message": "Item created successfully.", "item": { "id": null, "name": "Lorem Ipsum", "price": 100000, "userId": "IPHONE_15_69000", "updatedAt": "2025-10-17T11:46:04.231Z", "createdAt": "2025-10-17T11:46:04.231Z" } }`
         };
 
         // --- GENERATE V2 DATA FROM V1 ---
@@ -118,6 +119,7 @@
             "Delete User": `{ "status": 200, "message": "User is successfully deleted." }`,
             "Get Item All": responsesV1["Get Item All"],
             "Get Item User": responsesV1["Get Item User"],
+            "Create New Item": responsesV1["Create New Item"],
             "Update item": responsesV1["Update item"],
             "Delete Item": responsesV1["Delete Item"],
             "Get All History": responsesV1["Get All History"],
@@ -265,10 +267,53 @@
                         }
 
                         if (requestItem.request.body && requestItem.request.body.raw) {
+                            const bodyHeaderWrapper = document.createElement('div');
+                            bodyHeaderWrapper.className = 'flex justify-between items-center mt-4 mb-2';
+
                             const bodyTitle = document.createElement('h4');
                             bodyTitle.textContent = 'Request Body';
-                            bodyTitle.className = 'font-semibold text-gray-700 mt-4 mb-2';
-                            cardBody.appendChild(bodyTitle);
+                            bodyTitle.className = 'font-semibold text-gray-700';
+                            bodyHeaderWrapper.appendChild(bodyTitle);
+
+                            const copyBodyButton = document.createElement('button');
+                            copyBodyButton.className = 'flex items-center space-x-2 text-sm text-gray-500 hover:text-indigo-600 font-medium py-1 px-2 rounded-md bg-gray-100 hover:bg-indigo-50 transition-colors';
+                            
+                            const copyIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+                            const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+                            const buttonText = document.createElement('span');
+                            buttonText.textContent = 'Copy';
+
+                            const iconContainer = document.createElement('div');
+                            iconContainer.innerHTML = copyIcon;
+                            
+                            copyBodyButton.appendChild(iconContainer);
+                            copyBodyButton.appendChild(buttonText);
+                            
+                            copyBodyButton.addEventListener('click', () => {
+                                const textArea = document.createElement("textarea");
+                                textArea.value = JSON.stringify(JSON.parse(requestItem.request.body.raw), null, 4);
+                                textArea.style.position = 'fixed';
+                                textArea.style.top = '-9999px';
+                                textArea.style.left = '-9999px';
+                                document.body.appendChild(textArea);
+                                textArea.select();
+                                try {
+                                    document.execCommand('copy');
+                                    buttonText.textContent = 'Copied!';
+                                    iconContainer.innerHTML = checkIcon;
+                                    setTimeout(() => {
+                                        buttonText.textContent = 'Copy';
+                                        iconContainer.innerHTML = copyIcon;
+                                    }, 2000);
+                                } catch (err) {
+                                    console.error('Oops, unable to copy request body', err);
+                                    buttonText.textContent = 'Error';
+                                }
+                                document.body.removeChild(textArea);
+                            });
+                            bodyHeaderWrapper.appendChild(copyBodyButton);
+                            cardBody.appendChild(bodyHeaderWrapper);
 
                             const pre = document.createElement('pre');
                             pre.className = 'bg-gray-900 text-white p-4 rounded-md text-sm overflow-x-auto';
