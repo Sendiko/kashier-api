@@ -1,10 +1,10 @@
 import express, { Application, Request, Response } from "express";
 import config from './config/config.js';
-import syncModels from "models/sync.js";
-import routerv1 from "route/version_one.js";
+import syncModels from "./models/sync.js";
+import routerv1 from "./route/version_one.js";
 import path from "path";
 import { fileURLToPath } from "url";
-import routerv2 from "route/version_two.js";
+import routerv2 from "./route/version_two.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

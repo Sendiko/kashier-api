@@ -3,7 +3,7 @@ import express from "express";
 import UserController from "../controller/user_controller.js";
 import ItemController from "../controller/item_controller.js";
 import HistoryController from "../controller/history_controller.js";
-import authenticateToken from "middleware/auth_middleware.js";
+import authenticateToken from "../middleware/auth_middleware.js";
 const router = express.Router();
 
 router.put("/api/v2/user/:id", authenticateToken, UserController.update);
