@@ -27,10 +27,18 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <div class="flex h-screen bg-gray-100">
+    <!-- Overlay for mobile menu -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden md:hidden"></div>
+
+    <div class="relative min-h-screen md:flex">
         <!-- Sidebar -->
-        <aside class="w-64 flex-shrink-0 bg-white shadow-lg p-6">
-            <h1 class="text-2xl font-extrabold text-gray-900 mb-8">Kashier API</h1>
+        <aside id="sidebar" class="w-64 flex-shrink-0 bg-white shadow-lg p-6 fixed inset-y-0 left-0 z-30 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-300 ease-in-out">
+            <div class="flex items-center justify-between mb-8">
+                 <h1 class="text-2xl font-extrabold text-gray-900">Kashier API</h1>
+                 <button id="close-menu-btn" class="md:hidden text-gray-500 hover:text-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                 </button>
+            </div>
             <nav>
                 <ul class="space-y-2">
                     <li>
@@ -48,11 +56,15 @@
         </aside>
 
         <!-- Main Content -->
-        <div class="flex-1 p-6 md:p-10 overflow-y-auto">
-             <header class="text-center mb-10">
-                <h1 id="main-title" class="text-4xl md:text-5xl font-extrabold text-gray-800 tracking-tight">API Documentation V1</h1>
+        <div class="flex-1 md:ml-64">
+             <header class="flex justify-between items-center p-4 md:p-0 md:justify-center bg-white md:bg-transparent shadow-md md:shadow-none sticky top-0 md:static z-10 md:my-10">
+                 <button id="open-menu-btn" class="md:hidden text-gray-600 hover:text-gray-900">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                 </button>
+                <h1 id="main-title" class="text-xl md:text-5xl font-extrabold text-gray-800 tracking-tight">API Documentation V1</h1>
+                <div class="w-6 md:hidden"></div> <!-- Spacer for mobile title centering -->
             </header>
-            <main>
+            <main class="p-6 md:p-10">
                 <div id="api-content-v1">
                     <!-- V1 API documentation content will be dynamically generated here -->
                 </div>
@@ -431,6 +443,30 @@
         generateApiDocs(postmanCollectionV1, responsesV1, 'api-content-v1');
         generateApiDocs(postmanCollectionV2, responsesV2, 'api-content-v2');
         
+        // --- RESPONSIVE MENU LOGIC ---
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const openMenuBtn = document.getElementById('open-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const menuLinks = document.querySelectorAll('#sidebar nav a');
+
+        const toggleMenu = () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        };
+
+        openMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    toggleMenu();
+                }
+            });
+        });
+
     </script>
 
 </body>
