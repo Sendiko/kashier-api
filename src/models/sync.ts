@@ -8,18 +8,21 @@ const syncModels = async () => {
   try {
     await Admin.sync();
     const admins = await Admin.findAll();
+    console.log(admins.length);
     if (admins.length === 0) {
-      const password = bcrypt.hash("admin123", 10);
+      const password = await bcrypt.hash("admin123", 10);
       await Admin.create({ name: "admin", password: password });
+      const newAdmins = await Admin.findAll();
+      console.log(newAdmins);
     }
-    User.hasMany(Item, { foreignKey: "userId"})
-    User.hasMany(History, { foreignKey: "userId"})
+    User.hasMany(Item, { foreignKey: "userId" })
+    User.hasMany(History, { foreignKey: "userId" })
     await User.sync();
 
-    Item.belongsTo(User, { foreignKey: "userId"});
+    Item.belongsTo(User, { foreignKey: "userId" });
     await Item.sync();
 
-    History.belongsTo(User, { foreignKey: "userId"});
+    History.belongsTo(User, { foreignKey: "userId" });
     await History.sync();
   } catch (error: any) {
     console.error("Error syncing models: ", error.message);
