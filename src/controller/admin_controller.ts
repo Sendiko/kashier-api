@@ -33,6 +33,7 @@ const AdminController = {
       return res.status(200).json({
         status: 200,
         message: "Admin successfully logged in.",
+        token: token,
       });
     } catch (error: any) {
       return res.status(500).json({
