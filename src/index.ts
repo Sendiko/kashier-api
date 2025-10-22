@@ -5,6 +5,7 @@ import routerv1 from "./route/version_one.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import routerv2 from "./route/version_two.js";
+import cors from 'cors';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,6 +21,7 @@ app.get("/", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../views/index.html"));
 })
 
+app.use(cors);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(routerv1);
