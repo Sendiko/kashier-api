@@ -23,6 +23,7 @@ app.get("/", (req: Request, res: Response) => {
 })
 
 app.use(cors({
+  origin: true,
   credentials: true,
 }));
 app.use(express.json());
