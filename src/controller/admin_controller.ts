@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import Admin from "models/admin.js";
+import Admin from "../models/admin.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import config from "config/config.js";
+import config from "../config/config.js";
 
 const AdminController = {
   login: async (req: Request, res: Response) => {
