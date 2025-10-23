@@ -9,7 +9,7 @@ const config = {
     DBNAME: process.env.DB_NAME || '',
     DBUSER: process.env.DB_USER || '',
     DBPWD: process.env.DB_PASSWORD || '',
-    JWTAUTHKEY: process.env.JWTAUTHKEY || 'secretkey'
+    JWTAUTHKEY: process.env.JWT_AUTH_KEY || 'secretkey'
 }
 
 export default config

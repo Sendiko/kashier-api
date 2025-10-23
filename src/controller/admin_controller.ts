@@ -7,16 +7,19 @@ import config from "../config/config.js";
 const AdminController = {
   login: async (req: Request, res: Response) => {
     try {
-      
+
       console.log(`[REQUEST DATA] name: ${req.body.name}`);
       console.log(`[REQUEST DATA] password: ${req.body.password}`);
-      
+
+      console.log(`[DEBUG] Searching for admin with name: ${req.body.name}`);
       const admin = await Admin.findOne({
-        where: {
-          name: req.body.name,
-        },
+        where: { name: req.body.name },
         attributes: ["id", "name", "password"],
+        raw: true,
       });
+
+      console.log(`[DEBUG] Query result: ${JSON.stringify(admin, null, 2)}`);
+
 
       if (!admin) {
         return res.status(404).json({
