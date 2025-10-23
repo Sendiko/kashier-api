@@ -21,6 +21,10 @@ Admin.init({
   password: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  token: {
+    type: DataTypes.STRING,
+    allowNull: true,
   }
 }, {
   sequelize: database,
