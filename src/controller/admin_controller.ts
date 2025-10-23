@@ -7,10 +7,15 @@ import config from "../config/config.js";
 const AdminController = {
   login: async (req: Request, res: Response) => {
     try {
+      
+      console.log(`[REQUEST DATA] name: ${req.body.name}`);
+      console.log(`[REQUEST DATA] password: ${req.body.password}`);
+      
       const admin = await Admin.findOne({
         where: {
           name: req.body.name,
         },
+        attributes: ["id", "name", "password"],
       });
 
       if (!admin) {
@@ -19,6 +24,7 @@ const AdminController = {
           message: "Admin not found.",
         });
       }
+      console.log(`[ADMIN DATA] data: ${admin.password}`);
 
       const match = await bcrypt.compare(req.body.password, admin.password);
       if (!match) {
