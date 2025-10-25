@@ -17,7 +17,7 @@ router.delete("/api/v2/item/:id", authenticateToken, ItemController.delete);
 
 router.get("/api/v2/history", authenticateToken, HistoryController.index);
 router.get("/api/v2/history/:userId", authenticateToken, HistoryController.show);
-router.post("/api/v2/history", authenticateToken, HistoryController.store);
+router.post("/api/v2/transaction", authenticateToken, HistoryController.store);
 router.put("/api/v2/history/:id", authenticateToken, HistoryController.update);
 router.delete("/api/v2/history/:id", authenticateToken, HistoryController.delete);
 
