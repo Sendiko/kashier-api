@@ -5,6 +5,7 @@ class Item extends Model {
   public id!: string
   public name!: string
   public price!: number
+  public userId!: string
 }
 
 Item.init({
@@ -20,6 +21,14 @@ Item.init({
   price: {
     type: DataTypes.FLOAT,
     allowNull: false
+  },
+  userId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    references: {
+      model: 'users',
+      key: 'id'
+    }
   }
 }, {
   sequelize: database,
