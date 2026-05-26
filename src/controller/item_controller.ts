@@ -18,7 +18,7 @@ const ItemController = {
       });
     }
   },
-  show: async (req: Request, res: Response) => {
+  show: async (req: Request, res: Response) => {``
     try {
       if (!req.params.userId) {
         return res.status(400).json({
