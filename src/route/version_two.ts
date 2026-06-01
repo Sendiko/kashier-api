@@ -6,6 +6,9 @@ import HistoryController from "../controller/history_controller.js";
 import authenticateToken from "../middleware/auth_middleware.js";
 const router = express.Router();
 
+router.post("/api/v2/user", (req, res) => {
+  res.redirect("/api/v1/user")
+});
 router.put("/api/v2/user/:id", authenticateToken, UserController.update);
 router.delete("/api/v2/user/:id", authenticateToken, UserController.delete);
 
