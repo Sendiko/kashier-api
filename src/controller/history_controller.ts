@@ -5,12 +5,6 @@ const HistoryController = {
   index: async (req: Request, res: Response) => {
     try {
       const histories = await History.findAll();
-      if (histories.length === 0) {
-        return res.status(404).json({
-          status: 404,
-          message: "Histories are empty."
-        });
-      }
 
       return res.status(200).json({
         status: 200,
@@ -34,13 +28,6 @@ const HistoryController = {
       }
 
       const histories = await History.findAll({ where: { userId: req.params.userId } });
-
-      if (histories.length === 0) {
-        return res.status(404).json({
-          status: 404,
-          message: "Histories are empty."
-        });
-      }
 
       return res.status(200).json({
         status: 200,
